@@ -6,6 +6,7 @@ import { User } from './entities/user.entity';
 import { addTransactionalDataSource } from 'typeorm-transactional';
 import { DataSource } from 'typeorm';
 import { ormconfig } from './config/ormconfig';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { ormconfig } from './config/ormconfig';
         }
         return addTransactionalDataSource(new DataSource(options))
       }
-    })],
+    }),
+    UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })
